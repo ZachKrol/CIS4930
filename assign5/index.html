@@ -1,0 +1,336 @@
+<!-- Assignment 5: PHP Quiz -->
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PHP Quiz</title>
+    <link rel="stylesheet" href="./../styleNew.css" />
+    <link rel="icon" type="image/x-icon" href="../../favicon.ico" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://code.jquery.com/jquery-3.6.3.min.js"
+      integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
+      crossorigin="anonymous"
+    ></script>
+    <!-- <script defer src="main.js"></script> -->
+    <style>
+      .text-primary {
+        color: red !important;
+      }
+    </style>
+  </head>
+
+  <body class="d-flex flex-column h-100">
+    <p>lo</p>
+    <div class="container py-3">
+      <div class="row m-3">
+        <div class="col text-center align-self-center">
+          <h1 class="text-primary">
+            <b>Marvel SNAP Video Game Quiz</b><br /><small
+              class="text-secondary text-start"
+              >Test Your Trivia Knowledge About This Video Game</small
+            >
+          </h1>
+          <p class="text-secondary-emphasis">By: Zach Krol</p>
+        </div>
+      </div>
+      <form
+        autocomplete="off"
+        class="row p-4 m-3 mt-5 bg-danger-subtle border border-danger-subtle border-2 rounded-4"
+      >
+        <!-- Name -->
+        <div
+          class="col-lg-6 offset-lg-3 py-1 text-bg-secondary rounded-3 text-center"
+        >
+          What is your name?
+        </div>
+        <div class="col-12 mt-3"></div>
+        <div class="col-lg-6 col-10 offset-lg-3 offset-1 mb-3">
+          <div class="input-group">
+            <div class="form-floating is-invalid">
+              <input
+                type="text"
+                id="name"
+                class="form-control"
+                name="name"
+                placeholder="Name Placeholder"
+                required
+              />
+              <label for="name">Name</label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Q1 -->
+        <div
+          class="col-lg-6 offset-lg-3 py-1 text-bg-secondary rounded-3 text-center mt-3"
+        >
+          Q1. How many locations are at the start of each battle?
+        </div>
+        <div class="col-12 mt-3"></div>
+        <div class="col-lg-6 col-10 offset-lg-3 offset-1 mb-3">
+          <div class="input-group">
+            <div class="form-floating is-invalid">
+              <input
+                type="text"
+                id="Q1"
+                class="form-control"
+                name="Q1"
+                placeholder="Q1 Placeholder"
+                required
+              />
+              <label for="Q1">Answer</label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Q2 -->
+        <div
+          class="col-lg-6 offset-lg-3 py-1 text-bg-secondary rounded-3 text-center mt-3"
+        >
+          Q2. Which 6-cost 12-power card loves to SMASH!
+        </div>
+        <div class="col-12 mt-3"></div>
+        <div class="col-lg-6 col-10 offset-lg-3 offset-1 mb-3">
+          <div class="input-group">
+            <div class="form-floating is-invalid">
+              <input
+                type="text"
+                id="Q2"
+                class="form-control"
+                name="Q2"
+                placeholder="Q2 Placeholder"
+                required
+              />
+              <label for="Q2">Answer</label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Q3 -->
+        <div
+          class="col-lg-6 offset-lg-3 py-1 text-bg-secondary rounded-3 text-center mt-3"
+        >
+          Q3. What currency is used to upgrade cards?
+        </div>
+        <div class="col-12 mt-3"></div>
+        <div class="col-6 offset-3 mb-3">
+          <div class="form-check form-check-inline">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="Q3"
+              id="gold"
+              value="gold"
+              required
+            />
+            <label class="form-check-label" for="gold">Gold</label>
+          </div>
+
+          <div class="form-check form-check-inline is-invalid">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="Q3"
+              id="credits"
+              value="credits"
+              required
+            />
+            <label class="form-check-label" for="credits">Credits</label>
+          </div>
+
+          <div class="form-check form-check-inline is-invalid">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="Q3"
+              id="tokens"
+              value="tokens"
+              required
+            />
+            <label class="form-check-label" for="credits">Tokens</label>
+          </div>
+        </div>
+
+        <!--  Q4 -->
+        <div
+          class="col-lg-6 offset-lg-3 py-1 text-bg-secondary rounded-3 text-center mt-3"
+        >
+          Q4. Which is NOT a term used in Marvel SNAP?
+        </div>
+        <div class="col-12 mt-3"></div>
+        <div class="col-lg-6 col-10 offset-lg-3 offset-1 mb-3">
+          <div class="form-floating is-invalid">
+            <select class="form-select" id="Q4" name="Q4" required>
+              <option value="" selected disabled hidden>Answer</option>
+              <option value="1">Variant</option>
+              <option value="2">Mission</option>
+              <option value="3">Ongoing</option>
+              <option value="4">Ongod</option>
+              <option value="5">On-Reveal</option>
+            </select>
+            <label for="Q4">Choose an option</label>
+          </div>
+        </div>
+
+        <!-- Q5 -->
+        <div
+          class="col-lg-6 offset-lg-3 py-1 text-bg-secondary rounded-3 text-center mt-3"
+        >
+          Q5. Which cards cost 2 energy?
+        </div>
+        <div class="col-12 mt-3"></div>
+        <div class="col-lg-8 col-12 offset-lg-2 offset-0 text-center">
+          <div class="form-check form-check-inline">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              id="wolverine"
+              name="Q5"
+              value="wolverine"
+            />
+            <label class="form-check-label" for="wolverine">Wolverine</label>
+          </div>
+
+          <div class="form-check form-check-inline">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              id="scarletWitch"
+              name="Q5"
+              value="scarletWitch"
+            />
+            <label class="form-check-label" for="scarletWitch"
+              >Scarlet Witch</label
+            >
+          </div>
+
+          <div class="form-check form-check-inline">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              id="ironMan"
+              name="Q5"
+              value="ironMan"
+            />
+            <label class="form-check-label" for="ironMan">Iron Man</label>
+          </div>
+
+          <div class="form-check form-check-inline">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              id="hawkeye"
+              name="Q5"
+              value="hawkeye"
+            />
+            <label class="form-check-label" for="hawkeye">Hawkeye</label>
+          </div>
+
+          <div class="form-check form-check-inline">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              id="starLord"
+              name="Q5"
+              value="starLord"
+            />
+            <label class="form-check-label" for="starLord">Star Lord</label>
+          </div>
+
+          <div class="form-check form-check-inline">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              id="captainAmerica"
+              name="Q5"
+              value="captainAmerica"
+            />
+            <label class="form-check-label" for="captainAmerica"
+              >Captain America</label
+            >
+          </div>
+
+          <div class="form-check form-check-inline">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              id="doctorStrange"
+              name="Q5"
+              value="doctorStrange"
+            />
+            <label class="form-check-label" for="doctorStrange"
+              >Doctor Strange</label
+            >
+          </div>
+
+          <div class="form-check form-check-inline">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              id="buckyBarnes"
+              name="Q5"
+              value="buckyBarnes"
+            />
+            <label class="form-check-label" for="buckyBarnes"
+              >Bucky Barnes</label
+            >
+          </div>
+
+          <div class="form-check form-check-inline">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              id="sheHulk"
+              name="Q5"
+              value="sheHulk"
+            />
+            <label class="form-check-label" for="sheHulk">She-Hulk</label>
+          </div>
+        </div>
+
+        <div class="col-12 mt-3"></div>
+        <div class="col-auto ms-auto mt-3">
+          <input
+            id="reset-btn"
+            class="btn btn-danger"
+            type="reset"
+            value="Reset"
+          />
+        </div>
+        <div class="col-auto me-auto mt-3">
+          <input
+            id="submit-btn"
+            class="btn btn-danger"
+            type="button"
+            value="Submit"
+          />
+        </div>
+
+        <div class="invalid-feedback">invalid</div>
+        <div class="valid-feedback">valid</div>
+      </form>
+
+      <div
+        id="result"
+        class="d-none row text-bg-success border border-success-subtle border-2 p-4 m-3 mt-5 rounded-4"
+      ></div>
+    </div>
+    <footer class="container-fluid p-0 mt-auto text-center">
+      <div class="p-2 text-bg-dark">&copy; Zach Krol 2023</div>
+    </footer>
+  </body>
+</html>

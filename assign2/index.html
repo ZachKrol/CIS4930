@@ -1,0 +1,335 @@
+<!-- Assignment 2: Web Form -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weight Class Calculator</title>
+    <link rel="stylesheet" href="./../style.css" />
+    <link rel="icon" type="image/x-icon" href="../../favicon.ico" />
+
+    <script>
+      function validateForm() {
+        let age = document.getElementById("age").value;
+        let weight = document.getElementById("weight").value;
+        let feet = document.getElementById("feet").value;
+        let inches = document.getElementById("inches").value;
+        let activity = document.getElementById("activity").value;
+
+        let inputValid = true;
+
+        // if (!(age && age.value)) {
+        // inputValid = false
+        // }
+
+        if (
+          age == "" ||
+          weight == "" ||
+          feet == "" ||
+          inches == "" ||
+          activity == ""
+        ) {
+          inputValid = false;
+        }
+
+        if (!document.querySelector('input[name="gender"]:checked')) {
+          inputValid = false;
+        }
+        console.log(inputValid);
+        console.log(age);
+        console.log(weight);
+        console.log(feet);
+        console.log(inches);
+        console.log(activity);
+
+        if (inputValid) {
+          document.getElementById("failure").innerHTML = ``;
+          processForm();
+        } else {
+          document.getElementById(
+            "failure"
+          ).innerHTML = `Please fill in all areas of the form!`;
+        }
+      }
+      function processForm() {
+        let age = parseInt(document.getElementById("age").value);
+        let weight = parseInt(document.getElementById("weight").value);
+        let feet = parseInt(document.getElementById("feet").value);
+        let inches = parseInt(document.getElementById("inches").value);
+        let gender = document.querySelector(
+          'input[name="gender"]:checked'
+        ).value;
+        let activity = document.getElementById("activity").value;
+
+        // determine current weight class
+        let weightClass = "";
+        if (gender == "male") {
+          if (weight <= 108) weightClass = "light flyweight";
+          else if (weight <= 115) weightClass = "flyweight";
+          else if (weight <= 123) weightClass = "bantamweight";
+          else if (weight <= 132) weightClass = "lightweight";
+          else if (weight <= 141) weightClass = "light welterweight";
+          else if (weight <= 152) weightClass = "welterweight";
+          else if (weight <= 165) weightClass = "middleweight";
+          else if (weight <= 178) weightClass = "light heavyweight";
+          else if (weight <= 201) weightClass = "heavyweight";
+          else weightClass = "super heavyweight";
+        } else {
+          if (weight <= 106) weightClass = "light flyweight";
+          else if (weight <= 112) weightClass = "flyweight";
+          else if (weight <= 119) weightClass = "bantamweight";
+          else if (weight <= 126) weightClass = "lightweight";
+          else if (weight <= 132) weightClass = "light welterweight";
+          else if (weight <= 141) weightClass = "welterweight";
+          else if (weight <= 152) weightClass = "middleweight";
+          else if (weight <= 165) weightClass = "light heavyweight";
+          else if (weight <= 179) weightClass = "heavyweight";
+          else weightClass = "super heavyweight";
+        }
+
+        // convert weight to kg
+        weight = weight * 0.453592;
+
+        // convert height to cm
+        let newInches = feet * 12 + inches;
+        let height = newInches * 2.54;
+
+        // calculate calories  based on BMR
+        let calories = 0;
+        if (gender == "male") {
+          calories = 66.5 + 13.75 * weight + 5.003 * height - 6.75 * age;
+        } else {
+          calories = 655.1 + 9.563 * weight + 1.85 * height - 4.676 * age;
+        }
+
+        // adjust based on activity level
+        calories = Math.round(calories * activity);
+
+        document.getElementById(
+          "success"
+        ).innerHTML = `Your weight class is ${weightClass} and you need to
+        consume ${calories} calories each day to maintain this weight class`;
+      }
+    </script>
+  </head>
+  <body>
+    <div id="page-container">
+      <div id="content-container">
+        <div
+          style="
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+          "
+        >
+          <h1>Weight Class Calculator and Calorie Tracker</h1>
+          <img
+            width="30%"
+            src="./images/boxingGloves.jpg"
+            alt="Boxing gloves"
+          />
+        </div>
+        <p>
+          It is important for a boxer to know what weight class they are allowed
+          to compete in. It is also important for a boxer to maintain that
+          weight leading up to a fight. This tool will help boxers keep track of
+          their weight class and plan their calorie intake based accordingly.
+        </p>
+        <p>
+          Note: This calculation uses the Harris-Benedict Equation with BMR.
+          Weight classes are based on Olympic amateur boxing standards.
+        </p>
+        <hr />
+        <div id="form">
+          <form id="weightForm">
+            <label class="field" for="age">Age:</label>
+            <input
+              type="text"
+              id="age"
+              name="age"
+              placeholder="Enter a number in years"
+            />
+            <label class="field" for="weight">Weight:</label>
+            <input
+              type="text"
+              id="weight"
+              name="weight"
+              placeholder="Enter a number in pounds"
+            />
+            <label class="field" for="height">Height:</label>
+            <div>
+              <select name="feet" id="feet">
+                <option
+                  style="color: lightgray"
+                  value=""
+                  selected
+                  disabled
+                  hidden
+                >
+                  Feet
+                </option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+              </select>
+              <select name="inches" id="inches">
+                <option
+                  style="color: lightgray"
+                  value=""
+                  selected
+                  disabled
+                  hidden
+                >
+                  Inches
+                </option>
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+              </select>
+            </div>
+            <label class="field" for="gender">Gender:</label>
+            <div style="display: flex">
+              <div>
+                <input type="radio" id="male" name="gender" value="male" />
+                <label style="font-weight: normal" for="male"
+                  >Male &#9794;
+                </label>
+              </div>
+              <div>
+                <input type="radio" id="female" name="gender" value="female" />
+                <label style="font-weight: normal" for="female"
+                  >Female &#9792;</label
+                >
+              </div>
+            </div>
+            <label class="field" for="checkbox"
+              >Weight classes interested in:</label
+            >
+            <div style="font-weight: normal; font-size: 16px" id="row1">
+              <input
+                type="checkbox"
+                name="weight-class"
+                id="light-flyweight"
+                value="light-flyweight"
+              />
+              <label for="light-flyweight">Light Flyweight</label>
+              <input
+                type="checkbox"
+                name="weight-class"
+                id="flyweight"
+                value="flyweight"
+              />
+              <label for="flyweight">Flyweight</label>
+              <input
+                type="checkbox"
+                name="weight-class"
+                id="bantamweight"
+                value="bantamweight"
+              />
+              <label for="bantamweight">Bantamweight</label>
+              <input
+                type="checkbox"
+                name="weight-class"
+                id="lightweight"
+                value="lightweight"
+              />
+              <label for="lightweight">Lightweight</label>
+              <input
+                type="checkbox"
+                name="weight-class"
+                id="light-welterweight"
+                value="light-welterweight"
+              />
+              <label for="light-welterweight">Light Welterweight</label>
+            </div>
+            <div style="font-weight: normal; font-size: 16px" id="row2">
+              <input
+                type="checkbox"
+                name="weight-class"
+                id="welterweight"
+                value="welterweight"
+              />
+              <label for="welterweight">Welterweight</label>
+              <input
+                type="checkbox"
+                name="weight-class"
+                id="middleweight"
+                value="middleweight"
+              />
+              <label for="middleweight">Middleweight</label>
+              <input
+                type="checkbox"
+                name="weight-class"
+                id="light-heavyweight"
+                value="light-heavyweight"
+              />
+              <label for="light-heavyweight">Light Heavyweight</label>
+              <input
+                type="checkbox"
+                name="weight-class"
+                id="heavyweight"
+                value="heavyweight"
+              />
+              <label for="heavyweight">Heavyweight</label>
+              <input
+                type="checkbox"
+                name="weight-class"
+                id="super-heavyweight"
+                value="super-heavyweight"
+              />
+              <label for="super-heavyweight">Super Heavyweight</label>
+            </div>
+            <label class="field" for="activity">Physical activity level:</label>
+            <select name="activity" id="activity">
+              <option
+                style="color: lightgray"
+                value=""
+                selected
+                disabled
+                hidden
+              >
+                Activity
+              </option>
+              <option value="1.2">little or no exercise</option>
+              <option value="1.375">light exercise 1-3 days/week</option>
+              <option value="1.55">moderate exercise 1-3 days/week</option>
+              <option value="1.725">hard exercise 6-7 days/week</option>
+              <option value="1.9">very hard exercise and physical job</option>
+            </select>
+
+            <input type="reset" value="Reset" />
+            <input type="button" value="Submit" onclick="validateForm()" />
+            <p id="success"></p>
+            <p id="failure"></p>
+          </form>
+        </div>
+        <hr />
+        <h2>Flowchart of Calorie Calculator</h2>
+        <img
+          src="./images/flowchart.jpg"
+          alt="Flowchart of calorie calculator"
+          width="80%"
+          style="display: block; margin: auto"
+        />
+      </div>
+      <footer>
+        <p class="copyright">&copy; Zach Krol 2023</p>
+      </footer>
+    </div>
+  </body>
+</html>

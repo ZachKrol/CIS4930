@@ -1,0 +1,17 @@
+Zach Krol
+Assignment 6
+
+Link to e-portfolio: https://www.cise.ufl.edu/~zkrol/cis4930/
+
+Dealing with SQL Injection:
+
+- SQL injection is a vulnerability resulting in the attacker
+  being able to input their own HTML into someone's code through
+  user text inputs. To prevent this it is important to sanitize
+  and validate user input.
+
+Resources Used:
+
+- ER Diagram Info: https://www.freecodecamp.org/news/crows-foot-notation-relationship-symbols-and-how-to-read-diagrams/
+- PHP W3 Schools: https://www.w3schools.com/php/
+- MySQL W3 Schools: https://www.w3schools.com/MySQL/default.asp

@@ -1,0 +1,151 @@
+<!-- Assignment 3: JS Repitition Control Structures -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Statistics Library</title>
+    <link rel="stylesheet" href="./../style.css" />
+    <link rel="icon" type="image/x-icon" href="../../favicon.ico" />
+    <script src="statistics.js"></script>
+    <script>
+      function calculateForm() {
+        var textAreaElement = document.getElementById("numbersInput");
+        var numArray = textAreaElement.value.trim().split("\n");
+
+        // Quantity
+        let quantity = findN(numArray);
+        document.getElementById("quantity").innerText =
+          JSON.stringify(quantity);
+
+        // Summation
+        let sum = findSum(numArray);
+        document.getElementById("summation").innerText = JSON.stringify(sum);
+
+        // Mean
+        let mean = findMean(numArray);
+        document.getElementById("mean").innerText = JSON.stringify(mean);
+
+        // Median
+        let median = findMedian(numArray);
+        document.getElementById("median").innerText = JSON.stringify(median);
+
+        // Mode
+        let mode = findMode(numArray);
+        document.getElementById("mode").innerText = JSON.stringify(mode);
+
+        // Maximum
+        let maximum = findMax(numArray);
+        document.getElementById("maximum").innerText = JSON.stringify(maximum);
+
+        // Minimum
+        let minimum = findMin(numArray);
+        document.getElementById("minimum").innerText = JSON.stringify(minimum);
+
+        // Range
+        let range = findRange(numArray);
+        document.getElementById("range").innerText = JSON.stringify(range);
+
+        // Variance
+        let variance = findVariance(numArray);
+        document.getElementById("variance").innerText =
+          JSON.stringify(variance);
+
+        // Standard Deviation
+        let deviation = findStandardDeviation(numArray);
+        document.getElementById("deviation").innerText =
+          JSON.stringify(deviation);
+
+        // Display Results
+        showResults();
+      }
+
+      function showResults() {
+        var div = document.getElementById("results");
+        div.style.display = "block";
+      }
+    </script>
+  </head>
+  <body>
+    <div id="page-container">
+      <div id="content-container">
+        <div
+          style="
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+          "
+        >
+          <h1>Statistics Functions</h1>
+          <img
+            width="30%"
+            src="./images/stats.png"
+            alt="Generic meeting with statistics graphs"
+            style="margin-left: 20px"
+          />
+        </div>
+
+        <p>
+          This page calculates some basic statistics functions and displays the
+          results back to the user. The functions that are calculated are:
+        </p>
+        <ol>
+          <li>Quantity</li>
+          <li>Summation</li>
+          <li>Mean</li>
+          <li>Median</li>
+          <li>Mode</li>
+          <li>Maximum</li>
+          <li>Minimum</li>
+          <li>Range</li>
+          <li>Variance</li>
+          <li>Standard Deviation</li>
+        </ol>
+        <hr />
+        <div id="form">
+          <form id="weightForm">
+            <p>
+              Enter a list of numbers in the text area below with a number on
+              each line.
+            </p>
+            <label class="field" for="numbersInput">Input:</label>
+            <textarea
+              name="numbersInput"
+              id="numbersInput"
+              cols="100"
+              rows="10"
+            ></textarea>
+            <input type="button" value="Calculate" onclick="calculateForm()" />
+            <div id="results">
+              <p class="field">Quantity</p>
+              <p id="quantity" class="statResult"></p>
+              <p class="field">Summation</p>
+              <p id="summation" class="statResult"></p>
+              <p class="field">Mean</p>
+              <p id="mean" class="statResult"></p>
+              <p class="field">Median</p>
+              <p id="median" class="statResult"></p>
+              <p class="field">Mode</p>
+              <p id="mode" class="statResult"></p>
+              <p class="field">Maximum</p>
+              <p id="maximum" class="statResult"></p>
+              <p class="field">Minimum</p>
+              <p id="minimum" class="statResult"></p>
+              <p class="field">Range</p>
+              <p id="range" class="statResult"></p>
+              <p class="field">Variance</p>
+              <p id="variance" class="statResult"></p>
+              <p class="field">Standard Deviation</p>
+              <p id="deviation" class="statResult"></p>
+            </div>
+          </form>
+        </div>
+      </div>
+      <footer>
+        <p class="copyright">&copy; Zach Krol 2023</p>
+      </footer>
+    </div>
+  </body>
+</html>

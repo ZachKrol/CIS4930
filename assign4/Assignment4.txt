@@ -1,0 +1,14 @@
+Zach Krol
+Cis4930
+Assignment 4
+
+Link to ePortfolio: https://www.cise.ufl.edu/~zkrol/cis4930/
+
+Resources:
+    W3 Schools - https://www.w3schools.com/
+    Britannica Boxing Weight Classes - https://www.britannica.com/sports/boxing/Weight-divisions
+    BMR Calculator - https://www.omnicalculator.com/health/bmr-harris-benedict-equation#:~:text=To%20calculate%20your%20BMR%2C%20you,%2D%20(6.75%20%C3%97%20age)%20.
+    Calorie Calculator - https://www.calculator.net/calorie-calculator.html
+    Boxing Image by Mikhail Nilov - https://www.pexels.com/photo/pair-of-boxing-gloves-on-gray-surface-6739946/
+    Bootstrap Docs - https://getbootstrap.com/docs/5.3/getting-started/introduction/
+    jQuery Docs - https://api.jquery.com/

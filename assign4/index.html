@@ -1,0 +1,512 @@
+<!-- Assignment 4: Bootstrap and JQuery -->
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bootstrap and jQuery</title>
+    <link rel="stylesheet" href="./../styleNew.css" />
+    <link rel="icon" type="image/x-icon" href="../../favicon.ico" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://code.jquery.com/jquery-3.6.3.min.js"
+      integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
+      crossorigin="anonymous"
+    ></script>
+    <script defer src="main.js"></script>
+  </head>
+
+  <body class="d-flex flex-column h-100">
+    <!-- <div class="alert alert-info">
+      <div class="d-none d-xl-block font-weight-bold">X-LARGE (XL)</div>
+      <div class="d-none d-lg-block d-xl-none font-weight-bold">LARGE (LG)</div>
+      <div class="d-none d-md-block d-lg-none font-weight-bold">MEDIUM (M)</div>
+      <div class="d-none d-sm-block d-md-none font-weight-bold">SMALL (SM)</div>
+      <div class="d-block d-sm-none alert font-weight-bold">
+        X-SMALL (Default)
+      </div>
+    </div> -->
+
+    <div class="container py-3">
+      <div class="row m-3">
+        <div class="col-md-9 text-center align-self-center">
+          <h1 class="text-primary">
+            <b>Boxing Weight Class Calculator</b><br /><small
+              class="text-secondary text-start"
+              >Calorie Tracking Tool</small
+            >
+          </h1>
+          <p class="text-secondary-emphasis">By: Zach Krol</p>
+        </div>
+        <div class="col-md-3 col-6 offset-md-0 offset-3 p-3 align-self-center">
+          <img
+            src="./images/boxingGloves.jpg"
+            class="img-fluid rounded-circle"
+            alt="boxing gloves"
+          />
+        </div>
+      </div>
+      <div class="row m-3">
+        <div class="col p-0">
+          <h4 class="text-primary">Fill out the form below to:</h4>
+          <ol class="list-group list-group-numbered rounded-4">
+            <li class="list-group-item">
+              Find out what weight class you are in
+            </li>
+            <li class="list-group-item">
+              Calculate the calories needed to maintain your weight class
+            </li>
+            <li class="list-group-item">
+              Learn more information about other weight classes
+            </li>
+          </ol>
+        </div>
+      </div>
+      <form
+        autocomplete="off"
+        class="row p-4 m-3 mt-5 bg-primary-subtle border border-primary-subtle border-2 rounded-4"
+      >
+        <div
+          class="col-lg-6 offset-lg-3 py-1 text-bg-secondary rounded-3 text-center"
+        >
+          Please fill out the form with information about yourself
+        </div>
+        <div class="col-12 mt-3"></div>
+
+        <!-- feet -->
+        <div class="col-sm-6 col-lg-2 offset-lg-1 mt-3">
+          <div class="input-group">
+            <div class="form-floating is-invalid">
+              <input
+                type="text"
+                id="feet"
+                class="form-control"
+                name="feet"
+                placeholder="Feet Placeholder"
+                required
+              />
+              <label for="feet">Feet</label>
+            </div>
+            <span class="input-group-text">ft</span>
+            <div id="feet-feedback" class="d-none invalid-feedback">
+              Enter a valid number (0-8)
+            </div>
+          </div>
+        </div>
+
+        <!-- inches -->
+        <div class="col-sm-6 col-lg-2 mt-3">
+          <div class="input-group">
+            <div class="form-floating is-invalid">
+              <input
+                type="text"
+                id="inches"
+                class="form-control"
+                name="inches"
+                placeholder="Inches Placeholder"
+                required
+              />
+              <label for="inches">Inches</label>
+            </div>
+            <span class="input-group-text">in</span>
+            <div id="inches-feedback" class="d-none invalid-feedback">
+              Enter a valid number (0-12)
+            </div>
+          </div>
+        </div>
+
+        <!-- weight -->
+        <div class="col-sm-6 col-lg-3 offset-lg-1 mt-3">
+          <div class="input-group">
+            <div class="form-floating is-invalid">
+              <input
+                type="text"
+                id="weight"
+                class="form-control"
+                name="weight"
+                placeholder="Weight Placeholder"
+                required
+              />
+              <label for="weight">Weight</label>
+            </div>
+            <span class="input-group-text">lbs</span>
+            <div id="weight-feedback" class="d-none invalid-feedback">
+              Enter a valid number (1-999)
+            </div>
+          </div>
+        </div>
+
+        <!-- age -->
+        <div class="col-sm-6 col-lg-2 mt-3">
+          <div class="form-floating is-invalid">
+            <input
+              type="text"
+              id="age"
+              class="form-control"
+              name="age"
+              placeholder="Age Placeholder"
+              required
+            />
+            <label for="age">Age</label>
+          </div>
+          <div id="age-feedback" class="d-none invalid-feedback">
+            Enter a valid number (1-999)
+          </div>
+        </div>
+
+        <!-- gender -->
+        <div class="col-sm-3 col-lg-4 offset-lg-1 mt-3 align-self-center">
+          <div class="form-check form-check-inline">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="gender"
+              id="male"
+              value="male"
+              required
+            />
+            <label class="form-check-label" for="male">Male</label>
+          </div>
+
+          <div class="form-check form-check-inline is-invalid">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="gender"
+              id="female"
+              value="female"
+              required
+            />
+            <label class="form-check-label" for="female">Female</label>
+          </div>
+          <div id="female-feedback" class="d-none invalid-feedback">
+            Select sex
+          </div>
+        </div>
+
+        <!-- activity level -->
+        <div class="col-sm-9 col-lg-5 offset-lg-1 mt-3">
+          <div class="form-floating is-invalid">
+            <select class="form-select" id="activity" name="activity" required>
+              <option value="" selected disabled hidden>
+                Choose how often you exercise
+              </option>
+              <option value="1.2">Little or no exercise</option>
+              <option value="1.375">Light exercise 1-3 days/week</option>
+              <option value="1.55">Moderate exercise 1-3 days/week</option>
+              <option value="1.725">Hard exercise 6-7 days/week</option>
+              <option value="1.9">Very hard exercise and physical job</option>
+            </select>
+            <label for="floatingSelect">Activity Level</label>
+          </div>
+          <div id="activity-feedback" class="d-none invalid-feedback">
+            Select activity level
+          </div>
+        </div>
+
+        <div
+          class="col-lg-6 offset-lg-3 py-1 mt-4 text-bg-secondary rounded-3 text-center"
+        >
+          Select the weight classes you want to learn more about
+        </div>
+        <div class="col-12 mt-3"></div>
+
+        <!-- weight classes -->
+        <div class="col-12 text-center">
+          <div class="form-check form-check-inline">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              id="light-flyweight"
+              name="weight-class"
+              value="light-flyweight"
+            />
+            <label class="form-check-label" for="light-flyweight"
+              >Light Flyweight</label
+            >
+          </div>
+
+          <div class="form-check form-check-inline">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              id="flyweight"
+              name="weight-class"
+              value="flyweight"
+            />
+            <label class="form-check-label" for="flyweight">Flyweight</label>
+          </div>
+
+          <div class="form-check form-check-inline">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              id="bantamweight"
+              name="weight-class"
+              value="bantamweight"
+            />
+            <label class="form-check-label" for="bantamweight"
+              >Bantamweight</label
+            >
+          </div>
+
+          <div class="form-check form-check-inline">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              id="featherweight"
+              name="weight-class"
+              value="featherweight"
+            />
+            <label class="form-check-label" for="featherweight"
+              >Featherweight</label
+            >
+          </div>
+
+          <div class="form-check form-check-inline">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              id="lightweight"
+              name="weight-class"
+              value="lightweight"
+            />
+            <label class="form-check-label" for="lightweight"
+              >Lightweight</label
+            >
+          </div>
+
+          <div class="form-check form-check-inline">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              id="light-welterweight"
+              name="weight-class"
+              value="light-welterweight"
+            />
+            <label class="form-check-label" for="light-welterweight"
+              >Light Welterweight</label
+            >
+          </div>
+
+          <div class="form-check form-check-inline">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              id="welterweight"
+              name="weight-class"
+              value="welterweight"
+            />
+            <label class="form-check-label" for="welterweight"
+              >Welterweight</label
+            >
+          </div>
+
+          <div class="form-check form-check-inline">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              id="middleweight"
+              name="weight-class"
+              value="middleweight"
+            />
+            <label class="form-check-label" for="middleweight"
+              >Middleweight</label
+            >
+          </div>
+
+          <div class="form-check form-check-inline">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              id="light-heavyweight"
+              name="weight-class"
+              value="light-heavyweight"
+            />
+            <label class="form-check-label" for="light-heavyweight"
+              >Light Heavyweight</label
+            >
+          </div>
+
+          <div class="form-check form-check-inline">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              id="heavyweight"
+              name="weight-class"
+              value="heavyweight"
+            />
+            <label class="form-check-label" for="heavyweight"
+              >Heavyweight</label
+            >
+          </div>
+
+          <div class="form-check form-check-inline">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              id="super-heavyweight"
+              name="weight-class"
+              value="super-heavyweight"
+            />
+            <label class="form-check-label" for="super-heavyweight"
+              >Super Heavyweight</label
+            >
+          </div>
+        </div>
+
+        <div class="col-auto ms-auto mt-3">
+          <input
+            id="reset-btn"
+            class="btn btn-primary"
+            type="reset"
+            value="Reset"
+          />
+        </div>
+        <div class="col-auto me-auto mt-3">
+          <input
+            id="submit-btn"
+            class="btn btn-primary"
+            type="button"
+            value="Submit"
+          />
+        </div>
+
+        <div class="invalid-feedback">invalid</div>
+        <div class="valid-feedback">valid</div>
+      </form>
+
+      <div
+        id="result"
+        class="d-none row text-bg-success border border-success-subtle border-2 p-4 m-3 mt-5 rounded-4"
+      ></div>
+
+      <div class="row m-3 mt-5">
+        <div class="col p-0">
+          <h4 class="text-primary">More Info:</h4>
+          <ul class="list-group rounded-4">
+            <li
+              id="light-flyweight-info"
+              class="list-group-item d-flex justify-content-between"
+            >
+              <span><b class="pe-2">Light Flyweight</b></span>
+              <span><i>Men:</i> &lt;108 lbs, <i>Women:</i> N/A</span>
+            </li>
+            <li
+              id="flyweight-info"
+              class="list-group-item d-flex justify-content-between"
+            >
+              <span><b class="pe-2">Flyweight</b></span>
+              <span><i>Men:</i> &lt;115 lbs, <i>Women:</i> &lt;106 lbs</span>
+            </li>
+            <li
+              id="bantamweight-info"
+              class="list-group-item d-flex justify-content-between"
+            >
+              <span><b class="pe-2">Bantamweight</b></span>
+              <span><i>Men:</i> &lt;123 lbs, <i>Women:</i> &lt;112 lbs</span>
+            </li>
+            <li
+              id="featherweight-info"
+              class="list-group-item d-flex justify-content-between"
+            >
+              <span><b class="pe-2">Featherweight</b></span>
+              <span><i>Men:</i> N/A, <i>Women:</i> &lt;119 lbs</span>
+            </li>
+            <li
+              id="lightweight-info"
+              class="list-group-item d-flex justify-content-between"
+            >
+              <span><b class="pe-2">Lightweight</b></span>
+              <span><i>Men:</i> &lt;132 lbs, <i>Women:</i> &lt;126 lbs</span>
+            </li>
+            <li
+              id="light-welterweight-info"
+              class="list-group-item d-flex justify-content-between"
+            >
+              <span><b class="pe-2">Light Welterweight</b></span>
+              <span><i>Men:</i> &lt;141 lbs, <i>Women:</i> &lt;132 lbs</span>
+            </li>
+            <li
+              id="welterweight-info"
+              class="list-group-item d-flex justify-content-between"
+            >
+              <span><b class="pe-2">Welterweight</b></span>
+              <span><i>Men:</i> &lt;152 lbs, <i>Women:</i> &lt;141 lbs</span>
+            </li>
+            <li
+              id="middleweight-info"
+              class="list-group-item d-flex justify-content-between"
+            >
+              <span><b class="pe-2">Middleweight</b></span>
+              <span><i>Men:</i> &lt;165 lbs, <i>Women:</i> &lt;152 lbs</span>
+            </li>
+            <li
+              id="light-heavyweight-info"
+              class="list-group-item d-flex justify-content-between"
+            >
+              <span><b class="pe-2">Light Heavyweight</b></span>
+              <span><i>Men:</i> &lt;178 lbs, <i>Women:</i> &lt;165 lbs</span>
+            </li>
+            <li
+              id="heavyweight-info"
+              class="list-group-item d-flex justify-content-between"
+            >
+              <span><b class="pe-2">Heavyweight</b></span>
+              <span><i>Men:</i> &lt;201 lbs, <i>Women:</i> &lt;179 lbs</span>
+            </li>
+            <li
+              id="super-heavyweight-info"
+              class="list-group-item d-flex justify-content-between"
+            >
+              <span><b class="pe-2">Super Heavyweight</b></span>
+              <span><i>Men:</i> &gt;201 lbs, <i>Women:</i> &gt;179 lbs</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="row m-3 mt-5">
+        <div class="col-auto mx-auto">
+          <button id="flowchart-btn" class="btn btn-primary">Flowchart</button>
+        </div>
+      </div>
+
+      <div
+        id="flowchart"
+        class="d-none row p-4 m-3 mt-5 bg-primary-subtle border border-primary-subtle border-2 rounded-4"
+      >
+        <img
+          src="./images/flowchart.jpg"
+          alt="flowchart of calorie calculation logic"
+        />
+      </div>
+
+      <div class="row mt-3">
+        <div class="col-12 text-info text-center">
+          Weight classes based on information found at
+          <a
+            class="link-secondary"
+            target="_blank"
+            href="https://www.britannica.com/sports/boxing/Weight-divisions"
+            >Britannica</a
+          >
+        </div>
+      </div>
+    </div>
+    <footer class="container-fluid p-0 mt-auto text-center">
+      <div class="p-2 text-bg-dark">&copy; Zach Krol 2023</div>
+    </footer>
+  </body>
+</html>

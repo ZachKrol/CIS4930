@@ -1,0 +1,11 @@
+Zach Krol
+Cis4930
+Assignment 5
+
+Link to ePortfolio: https://www.cise.ufl.edu/~zkrol/cis4930/
+
+Resources:
+    W3 Schools - https://www.w3schools.com/
+    Bootstrap Docs - https://getbootstrap.com/docs/5.3/getting-started/introduction/
+    jQuery Docs - https://api.jquery.com/
+    Marvel SNAP wiki - https://marvelsnap.fandom.com/wiki/Marvel_Snap_Wiki

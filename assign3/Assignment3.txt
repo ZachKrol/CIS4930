@@ -1,0 +1,11 @@
+Zach Krol
+Cis4930
+Assignment 3
+
+Link to ePortfolio: https://www.cise.ufl.edu/~zkrol/cis4930/
+
+Resources:
+    W3 Schools - https://www.w3schools.com/
+    CareerBlog - https://novoresume.com/career-blog/networking-statistics
+    SharpCorner - https://www.c-sharpcorner.com/blogs/hide-and-show-div-using-javascript1
+    
